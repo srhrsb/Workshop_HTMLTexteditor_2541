@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class Controller {
@@ -19,8 +22,17 @@ public class Controller {
 
     @FXML
     protected void onClickSave() {
-       String path = getSavePath();
 
+        String path = pathLabel.getText();
+
+        if(path.isEmpty()){
+             path = getSavePath();
+        }
+
+       if(!path.isEmpty()){
+           String html = htmlEditor.getHtmlText();
+           save(path, html);
+       }
 
     }
 
@@ -30,14 +42,19 @@ public class Controller {
 
         if(!path.isEmpty()){
             pathLabel.setText(path);
-            load(path);
+            String html = load(path);
+            htmlEditor.setHtmlText(html);
         }
 
     }
 
     @FXML
     protected void onClickSaveAs() {
-
+        String path = getSavePath();
+        if(!path.isEmpty()){
+            String html = htmlEditor.getHtmlText();
+            save(path, html);
+        }
     }
 
     private String getLoadPath(){
@@ -53,13 +70,23 @@ public class Controller {
     }
 
     private void save( String path, String html ){
-
+        try {
+            Files.writeString( Path.of(path), html );
+        }
+        catch(IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
     private String load( String path ){
         String html="";
 
-
+        try {
+            html = Files.readString(Path.of(path));
+        }
+        catch(IOException e){
+            throw new RuntimeException(e);
+        }
 
         return html;
     }

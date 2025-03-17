@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.web.HTMLEditor?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.brh.workshop_htmltexteditor_2.Controller">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.brh.workshop_htmltexteditor_2.Controller">
    <children>
       <ToolBar prefHeight="40.0" prefWidth="200.0">
         <items>
           <Button mnemonicParsing="false" onAction="#onClickLoad" prefHeight="26.0" prefWidth="94.0" text="Laden" />
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClickSave" prefHeight="26.0" prefWidth="107.0" text="Speichern" />
             <Button layoutX="62.0" layoutY="12.0" mnemonicParsing="false" onAction="#onClickSaveAs" text="Speichern unter" />
-            <Label fx:id="pathLabel" prefHeight="28.0" prefWidth="508.0" text="Hier befindet sich ein Label das später die Datei anzeigen soll" />
+            <Label fx:id="pathLabel" prefHeight="28.0" prefWidth="508.0" />
         </items>
       </ToolBar>
-      <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;p&gt;Das ist ein fertiger HTML-Texteditor&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="529.0" prefWidth="834.0" />
+      <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;p&gt;Das ist ein fertiger HTML-Texteditor&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" />
    </children>
 </VBox>
