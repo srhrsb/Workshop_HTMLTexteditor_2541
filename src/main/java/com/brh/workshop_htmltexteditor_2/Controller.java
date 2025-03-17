@@ -27,8 +27,11 @@ public class Controller {
     @FXML
     protected void onClickLoad() {
     String path = getLoadPath();
-    pathLabel.setText(path);
 
+        if(!path.isEmpty()){
+            pathLabel.setText(path);
+            load(path);
+        }
 
     }
 
