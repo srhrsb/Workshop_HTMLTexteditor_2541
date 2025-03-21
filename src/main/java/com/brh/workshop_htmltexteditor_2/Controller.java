@@ -58,12 +58,15 @@ public class Controller {
     }
 
     private String getLoadPath(){
+        //ToDo: nur Html im dialog auswählbar machen
+        //ToDo: Dialog soll sich Pfad merken
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog( App.getStage() );
         return file.getAbsolutePath();
     }
 
     private String getSavePath(){
+        //ToDo: nur Html im dialog auswählbar machen
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showSaveDialog( App.getStage() );
         return file.getAbsolutePath();
@@ -71,7 +74,7 @@ public class Controller {
 
     private void save( String path, String html ){
         try {
-            Files.writeString( Path.of(path), html );
+            Files.writeString(Path.of(path), html );
         }
         catch(IOException e){
             throw new RuntimeException(e);
